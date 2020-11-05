@@ -1,9 +1,16 @@
 package examen;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public interface Monitor {
-    void update (Object object);
-    void displayData ();
-    Map<String, Double> getCurrentData ();
+public class Monitor {
+    Map<String, Double> data;
+
+    void update (Object object) {
+        this.data = (HashMap<String, Double>) object;
+    };
+    void displayData() {};
+    Map<String, Double> getCurrentData () {
+        return data;
+    };
 }

@@ -10,8 +10,8 @@ public class Subject {
     private Map<String, Double> data;
 
     public Subject () {
-        monitors = new ArrayList<Monitor>();
-        data = new HashMap<String, Double>();
+        monitors = new ArrayList<>();
+        data = new HashMap<>();
     }
 
     public int addMonitor (Monitor newMonitor) {
@@ -27,6 +27,10 @@ public class Subject {
     public void setValue (String key, Double value) {
         data.put(key, value);
         notifyMonitors ();
+    }
+
+    public List<Monitor> getMonitors () {
+        return monitors;
     }
 
     private void notifyMonitors () {
