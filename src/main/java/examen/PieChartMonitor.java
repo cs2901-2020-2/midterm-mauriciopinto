@@ -2,11 +2,11 @@ package examen;
 
 public class PieChartMonitor extends Monitor {
     public PieChartMonitor () {};
+    private PieChart chart = new PieChart("Data");
 
     @Override
     public void displayData() {
-        /*
-        *pie display here
-         */
+        chart.setSize(560, 367);
+        chart.setVisible(true);
     }
 }

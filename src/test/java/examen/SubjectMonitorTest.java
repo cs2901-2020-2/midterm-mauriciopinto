@@ -7,6 +7,15 @@ import org.testng.annotations.Test;
 public class SubjectMonitorTest {
 
     @Test
+    public void creationTest () {
+        Subject testSubject = new Subject();
+        Monitor testMonitor = new PieChartMonitor();
+
+        Assert.assertTrue(testSubject.getMonitors().isEmpty());
+        Assert.assertTrue(testMonitor.getCurrentData().isEmpty());
+    }
+
+    @Test
     public void addMonitorTest () {
         Subject testSubject = new Subject();
         Monitor testMonitor1 = new BarChartMonitor();
@@ -19,7 +28,7 @@ public class SubjectMonitorTest {
     }
 
     @Test
-    public void updateDataTest () {
+    public void setDataTest () {
         Subject testSubject = new Subject();
         Monitor testMonitor1 = new BarChartMonitor();
         Monitor testMonitor2 = new PieChartMonitor();
@@ -37,7 +46,15 @@ public class SubjectMonitorTest {
     }
 
     @Test
-    
+    public void removeMonitorTest () {
+        Subject testSubject = new Subject();
+        Monitor testMonitor1 = new BarChartMonitor();
+        Monitor testMonitor2 = new PieChartMonitor();
 
+        testSubject.addMonitor(testMonitor1);
+        testSubject.addMonitor(testMonitor2);
 
+        Assert.assertEquals(testSubject.removeMonitor(testMonitor1), 1);
+        Assert.assertEquals(testSubject.removeMonitor(testMonitor2), 0);
+    }
 }
