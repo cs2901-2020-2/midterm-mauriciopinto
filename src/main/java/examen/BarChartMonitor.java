@@ -6,7 +6,7 @@ public class BarChartMonitor extends Monitor {
 
     @Override
     public void displayData() {
-        chart = new BarChart()
+        chart = new BarChart("data", "data", data);
         chart.setSize(560, 367);
         chart.setVisible(true);
     }
